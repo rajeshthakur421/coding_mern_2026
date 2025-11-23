@@ -12,9 +12,9 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import {
   toggleHabit,
   removeHabit,
-} from "../store/habit-slice";
-import type { Habit } from "../store/habit-slice";
-import type { AppDispatch, RootState } from "../store/store";
+} from "../../store/habit-slice";
+import type { Habit } from "../../store/habit-slice";
+import type { AppDispatch, RootState } from "../../store/store";
 import Grid from '@mui/material/Grid';
 
 const HabitList: React.FC = () => {

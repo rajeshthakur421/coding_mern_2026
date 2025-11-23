@@ -9,9 +9,8 @@ import {
   MenuItem,
   Box,
 } from "@mui/material";
-import { addHabit } from "../store/habit-slice";
-import type { AppDispatch } from "../store/store";
-
+import { addHabit } from "../../store/habit-slice";
+import type { AppDispatch } from "../../store/store";
 const AddHabitForm: React.FC = () => {
   const [name, setName] = useState("");
   const [frequency, setFrequency] = useState<"daily" | "weekly">("daily");

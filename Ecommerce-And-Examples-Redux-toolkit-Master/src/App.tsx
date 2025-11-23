@@ -1,10 +1,11 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { Container, Typography, Box } from "@mui/material";
-import HabitList from "./components/habit-list";
-import HabitStats from "./components/habit-stats";
+import HabitList from "./components/habits/habit-list";
+import HabitStats from "./components/habits/habit-stats";
 import store from "./store/store";
-import AddHabitForm from "./components/add-habits-forms";
+import AddHabitForm from "./components/habits/add-habits-forms";
+import ProductList from "./components/products/ProductList";
 
 const App: React.FC = () => {
   return (
@@ -17,6 +18,8 @@ const App: React.FC = () => {
           <AddHabitForm />
           <HabitList />
           <HabitStats />
+          {/* New routes for products can be added here */}
+          {/* <ProductList /> */}
         </Box>
       </Container>
     </Provider>
