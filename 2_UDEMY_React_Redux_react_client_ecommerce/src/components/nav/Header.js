@@ -57,6 +57,14 @@ const Header = () => {
         </Link>
       </Item>
 
+      <Item key="uipages" icon={<ShoppingCartOutlined />}>
+        <Link to="/uipages">
+          <Badge count={cart.length} offset={[9, 0]}>
+            UI Pages
+          </Badge>
+        </Link>
+      </Item>
+
       {!user && (
         <Item key="register" icon={<UserAddOutlined />} className="float-right">
           <Link to="/register">Register</Link>

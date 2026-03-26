@@ -1,5 +1,5 @@
 import React, { useEffect, lazy, Suspense } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -43,6 +43,7 @@ const Login = lazy(() => import("./pages/auth/Login"));
 const Register = lazy(() => import("./pages/auth/Register"));
 const Home = lazy(() => import("./pages/Home"));
 const Header = lazy(() => import("./components/nav/Header"));
+const UipagesHeader = lazy(() => import("./components/nav/UipagesHeader"));
 const SideDrawer = lazy(() => import("./components/drawer/SideDrawer"));
 
 const RegisterComplete = lazy(() => import("./pages/auth/RegisterComplete"));
@@ -75,9 +76,13 @@ const CreateCouponPage = lazy(() =>
 );
 const Payment = lazy(() => import("./pages/Payment"));
 
+//flipkart is example of route with parameter, it will be used to test 404 page not found
+const Uipages = lazy(() => import("./pages/Uipages"));
+
 
 const App = () => {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   // to check firebase auth state
   useEffect(() => {
@@ -106,6 +111,8 @@ const App = () => {
     return () => unsubscribe();
   }, [dispatch]);
 
+  const isUipagesRoute = location.pathname === "/uipages" || location.pathname === "/flipkart";
+
   return (
     <Suspense
       fallback={
@@ -116,7 +123,7 @@ const App = () => {
         </div>
       }
     >
-      <Header />
+      {isUipagesRoute ? <UipagesHeader /> : <Header />}
       <SideDrawer />
       <ToastContainer />
       <Switch>
@@ -152,6 +159,10 @@ const App = () => {
         <UserRoute exact path="/checkout" component={Checkout} />
         <AdminRoute exact path="/admin/coupon" component={CreateCouponPage} />
         <UserRoute exact path="/payment" component={Payment} />
+
+        {/* //exammple of route with parameter */}
+        <Route exact path="/flipkart" component={Uipages} />
+        <Route exact path="/uipages" component={Uipages} />
       </Switch>
     </Suspense>
   );
