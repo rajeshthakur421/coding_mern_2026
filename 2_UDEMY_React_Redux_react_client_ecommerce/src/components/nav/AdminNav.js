@@ -46,8 +46,8 @@ const AdminNav = () => (
         </Link>
       </li>
       <li className="nav-item">
-        <Link to="/ImProductCreate" className="nav-link">
-          Product Crud
+        <Link to="/admin/productredux/reduxcrud" className="nav-link">
+          Product Crud Redux
         </Link>
       </li>
     </ul>

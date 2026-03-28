@@ -79,6 +79,9 @@ const Payment = lazy(() => import("./pages/Payment"));
 //flipkart is example of route with parameter, it will be used to test 404 page not found
 const Uipages = lazy(() => import("./pages/Uipages"));
 
+//redux implementation of product crud
+const ProductCrudRedux = lazy(() => import("./pages/admin/productredux/AllProducts"));
+
 
 const App = () => {
   const dispatch = useDispatch();
@@ -163,6 +166,14 @@ const App = () => {
         {/* //exammple of route with parameter */}
         <Route exact path="/flipkart" component={Uipages} />
         <Route exact path="/uipages" component={Uipages} />
+
+        {/* //reduc implementation of product crud */}
+        <AdminRoute
+          exact
+          path="/admin/productredux/reduxcrud"
+          component={ProductCrudRedux}
+        />
+
       </Switch>
     </Suspense>
   );
